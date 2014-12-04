@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Cadastro de Funcionários</title>
+        <link href="application.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:body>
+        
+        <h1>Login de cliente</h1>
+        <h:form>
+                <p>
+                    <h:outputLabel for="name">
+                        <h:outputText value="Login:"/>
+                    </h:outputLabel>
+                    <h:inputText id="name" value="#{loginClienteAction.cliente.login}" required="true" 
+                                 validatorMessage="Valor inválido." requiredMessage="O campo Login é obrigatório.">
+                        <f:validateLength minimum="3" maximum="30"/>
+                    </h:inputText>
+                </p>
+                <p>
+                    <h:outputLabel for="senha">
+                        <h:outputText value="Senha:"/>
+                    </h:outputLabel>
+                    <h:inputText id="senha" value="#{loginClienteAction.cliente.senha}" required="true" 
+                                 validatorMessage="Valor inválido." requiredMessage="O campo de Senha é obrigatório.">
+                        <f:validateLength minimum="3" maximum="30"/>
+                    </h:inputText>
+                </p>
+            <h:commandButton id="register" styleClass="buttonAdd" action="#{loginClienteAction.logar}" value="Entrar" /> <h:commandLink /> 
+
+        </h:form>
+
+    </h:body>
+</html>
+

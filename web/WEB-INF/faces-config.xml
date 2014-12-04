@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!-- =========== FULL CONFIGURATION FILE ================================== -->
+
+<faces-config version="2.0"
+    xmlns="http://java.sun.com/xml/ns/javaee" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+        <application>
+            <locale-config>
+			<default-locale>pt</default-locale>
+		</locale-config>
+            <message-bundle>br.com.buyme.alertas.CustomMessages</message-bundle>
+        </application>
+    <managed-bean>
+        <managed-bean-name>loginColaboradorAction</managed-bean-name>
+        <managed-bean-class>br.com.buyme.action.LoginColaboradorAction</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>loginClienteAction</managed-bean-name>
+        <managed-bean-class>br.com.buyme.action.LoginClienteAction</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>FormColaboradorAction</managed-bean-name>
+        <managed-bean-class>br.com.buyme.action.FormColaboradorAction</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>formClienteAction</managed-bean-name>
+        <managed-bean-class>br.com.buyme.action.FormClienteAction</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>    
+</faces-config>

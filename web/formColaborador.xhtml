@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Cadastro de Funcionários</title>
+        <link href="application.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:body>
+        
+        <h1>Formulário de colaborador</h1>
+        <h:form>
+                <p>
+                    <h:outputLabel for="nome">
+                        <h:outputText value="Nome:"/>
+                    </h:outputLabel>
+                    <h:inputText id="name" value="#{formColaboradorAction.colaborador.nome}" required="true" 
+                                 validatorMessage="Valor inválido." requiredMessage="O campo Login é obrigatório.">
+                        <f:validateLength minimum="3" maximum="30"/>
+                    </h:inputText>
+                </p>            
+            
+                <h:outputLabel for="birthDate">
+                    <h:outputText value="Data de Nascimento: "/>
+                </h:outputLabel>
+                <h:inputText id="birthDate" required="true"
+                                 value="#{formColaboradorAction.colaborador.dataNascminento}" >
+                    <f:convertDateTime type="date" dateStyle="short" pattern="dd/MM/yyyy"/> 
+                </h:inputText>
+            
+                <p>
+                    <h:outputLabel for="name">
+                        <h:outputText value="Login:"/>
+                    </h:outputLabel>
+                    <h:inputText id="login" value="#{FormColaboradorAction.colaborador.login}" required="true" 
+                                 validatorMessage="Valor inválido." requiredMessage="O campo Login é obrigatório.">
+                        <f:validateLength minimum="3" maximum="30"/>
+                    </h:inputText>
+                </p>
+                <p>
+                    <h:outputLabel for="senha">
+                        <h:outputText value="Senha:"/>
+                    </h:outputLabel>
+                    <h:inputText id="senha" value="#{FormColaboradorAction.colaborador.senha}" required="true" 
+                                 validatorMessage="Valor inválido." requiredMessage="O campo de Senha é obrigatório.">
+                        <f:validateLength minimum="3" maximum="30"/>
+                    </h:inputText>
+                </p>
+            <h:commandButton id="register" styleClass="buttonAdd" action="#{FormColaboradorAction.cadastrar}" value="Entrar" /> <h:commandLink /> 
+
+        </h:form>
+
+    </h:body>
+</html>
+
