@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Edição dos dados do colaborador</title>
+        <link href="application.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:body>
+
+        <h1>Formulário de colaborador</h1>
+
+        <h:form>
+
+            <table border="1">
+                <tr>
+                    <td>
+                        <h:outputLabel for="nome">
+                            <h:outputText value="Nome:"/>
+                        </h:outputLabel>
+                    </td>
+                    <td>
+                        <h:inputText id="name" value="#{formColaboradorAction.colaborador.nome}" required="true" 
+                                     validatorMessage="Valor inválido." requiredMessage="O campo nome é obrigatório.">
+                            <f:validateLength minimum="3" maximum="30"/>
+                        </h:inputText>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:outputLabel for="login">
+                            <h:outputText value="Login:"/>
+                        </h:outputLabel>
+                    </td>
+                    <td>
+                        <h:inputText id="login" value="#{formColaboradorAction.colaborador.login}" required="true" 
+                                     validatorMessage="Valor inválido." requiredMessage="O campo Login é obrigatório.">
+                            <f:validateLength minimum="3" maximum="30"/>
+                        </h:inputText>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:outputLabel for="senha">
+                            <h:outputText value="Senha:"/>
+                        </h:outputLabel>
+                    </td>
+                    <td>
+                        <h:inputSecret id="senha" value="#{formColaboradorAction.colaborador.senha}" required="true" 
+                                     validatorMessage="Valor inválido." requiredMessage="O campo de Senha é obrigatório.">
+                            <f:validateLength minimum="3" maximum="30"/>
+                        </h:inputSecret>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:outputLabel for="apelido">
+                            <h:outputText value="Apelido:"/>
+                        </h:outputLabel>
+                    </td>
+                    <td>
+                        <h:inputText id="apelido" value="#{formColaboradorAction.colaborador.apelido}" required="true" 
+                                     validatorMessage="Valor inválido." requiredMessage="O campo de apelido é obrigatório.">
+                            <f:validateLength minimum="3" maximum="30"/>
+                        </h:inputText>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:outputLabel for="descricao">
+                            <h:outputText value="Descricao:"/>
+                        </h:outputLabel>
+                    </td>
+                    <td>
+                        <h:inputText id="descricao" value="#{formColaboradorAction.colaborador.descricao}" required="true" 
+                                     validatorMessage="Valor inválido." requiredMessage="O campo de descricao é obrigatório.">
+                            <f:validateLength minimum="3" maximum="30"/>
+                        </h:inputText>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:outputLabel for="cache">
+                            <h:outputText value="Cache:"/>
+                        </h:outputLabel>
+                    </td>
+                    <td>
+                        <h:inputText id="cache" value="#{formColaboradorAction.colaborador.cache}" required="true" 
+                                     validatorMessage="Valor inválido." requiredMessage="O campo de cache é obrigatório.">
+                            <f:validateLength minimum="3" maximum="30"/>
+                        </h:inputText>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:commandButton id="register" styleClass="buttonAdd" action="#{formColaboradorAction.cadastrar}" value="Entrar" /> <h:commandLink /> 
+                    </td>
+                </tr>
+
+
+            </table>
+
+        </h:form>
+    </h:body>
+</html>

@@ -15,6 +15,6 @@ import br.com.buyme.aspects.SimpleEntityManager;
 public class GerarTabelas {
 
     public static void main(String[] args) {
-        SimpleEntityManager simpleEntityManager = new SimpleEntityManager((String) Banco.MySQL.getBanco());
+        SimpleEntityManager simpleEntityManager = new SimpleEntityManager((String) Banco.Postgres.getBanco());
     }
 }

@@ -6,18 +6,37 @@
 package br.com.buyme.entidades;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.util.Calendar;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
  * @author Di
  */
-//@Entity
-//@DiscriminatorValue("COLABORADOR")
-public class Cliente extends Usuario implements Serializable{
-    public String nome, login, senha, nick;
-    public Date dataNascminento;
-    public int genero;
+@Entity
+@DiscriminatorValue("CLIENTE")
+public class Cliente extends Usuario implements Serializable {
+
+    @Basic(optional = false)
+    public String nome;
+    @Basic(optional = false)
+    @Column(unique = true)
+    public String login;
+    public String senha;
+    public String apelido;
+    @Temporal(TemporalType.DATE)
+    public Calendar dataNascminento;
+    @OneToOne
+    @Enumerated(EnumType.ORDINAL)
+    private Genero genero;
 
     public String getNome() {
         return nome;
@@ -43,29 +62,28 @@ public class Cliente extends Usuario implements Serializable{
         this.senha = senha;
     }
 
-    public String getNick() {
-        return nick;
+    public String getApelido() {
+        return apelido;
     }
 
-    public void setNick(String nick) {
-        this.nick = nick;
+    public void setApelido(String apelido) {
+        this.apelido = apelido;
     }
 
-    public Date getDataNascminento() {
+    public Calendar getDataNascminento() {
         return dataNascminento;
     }
 
-    public void setDataNascminento(Date dataNascminento) {
+    public void setDataNascminento(Calendar dataNascminento) {
         this.dataNascminento = dataNascminento;
     }
 
-    public int getGenero() {
+    public Genero getGenero() {
         return genero;
     }
 
-    public void setGenero(int genero) {
+    public void setGenero(Genero genero) {
         this.genero = genero;
     }
-    
-    
+
 }

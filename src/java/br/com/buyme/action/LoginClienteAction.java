@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package br.com.buyme.action;
+
 import br.com.buyme.entidades.Cliente;
+import java.io.IOException;
 import javax.faces.context.FacesContext;
 
 /**
@@ -12,14 +14,16 @@ import javax.faces.context.FacesContext;
  * @author fabyuu
  */
 public class LoginClienteAction {
+
     private Cliente cliente;
 
     public LoginClienteAction() {
         cliente = new Cliente();
     }
-    
-    public void logar(){
+
+    public void logar() throws IOException {
         FacesContext context = FacesContext.getCurrentInstance();
+        context.getExternalContext().redirect("register.jsp");
         //ColaboradorService colaboradorService = new ColaboradorService(colaborador);
         //colaboradorService.findById();
         //return "main";
@@ -32,4 +36,5 @@ public class LoginClienteAction {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+
 }

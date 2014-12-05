@@ -12,13 +12,13 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -30,6 +30,7 @@ import javax.persistence.TemporalType;
 @DiscriminatorValue("COLABORADOR")
 public class Colaborador extends Usuario implements Serializable {
 
+    @OneToOne
     @Enumerated(EnumType.ORDINAL)
     private Genero genero;
     @Basic(optional = false)
@@ -51,17 +52,16 @@ public class Colaborador extends Usuario implements Serializable {
     private List<Arquivo> arquivos;
     @OneToMany
     @JoinTable(joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "forma_de_pagamento_id"))
-    private List<FormaDePagamento> formaDePagamentos;
-//    @OneToMany
-//    @JoinTable(joinColumns = @JoinColumn(name = "colaborador_id"), inverseJoinColumns = @JoinColumn(name = "servico_id"))
-    @ElementCollection(targetClass = TipoServico.class)
+    private List<FormaDePagamento> formasDePagamentos;
+    @OneToMany
+    @JoinTable(joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "servico_id"))
     @Enumerated(EnumType.ORDINAL)
     private List<TipoServico> servicos;
 
     public Colaborador() {
         this.arquivos = new ArrayList<>();
         this.enderecos = new ArrayList<>();
-        this.formaDePagamentos = new ArrayList<>();
+        this.formasDePagamentos = new ArrayList<>();
         this.servicos = new ArrayList<>();
     }
 
@@ -206,17 +206,17 @@ public class Colaborador extends Usuario implements Serializable {
     }
 
     /**
-     * @return the formaDePagamentos
+     * @return the formasDePagamentos
      */
-    public List<FormaDePagamento> getFormaDePagamentos() {
-        return formaDePagamentos;
+    public List<FormaDePagamento> getFormasDePagamentos() {
+        return formasDePagamentos;
     }
 
     /**
-     * @param formaDePagamentos the formaDePagamentos to set
+     * @param formasDePagamentos the formasDePagamentos to set
      */
-    public void setFormaDePagamentos(List<FormaDePagamento> formaDePagamentos) {
-        this.formaDePagamentos = formaDePagamentos;
+    public void setFormasDePagamentos(List<FormaDePagamento> formasDePagamentos) {
+        this.formasDePagamentos = formasDePagamentos;
     }
 
     /**
@@ -232,8 +232,21 @@ public class Colaborador extends Usuario implements Serializable {
     public void setServicos(List<TipoServico> servicos) {
         this.servicos = servicos;
     }
-    
-    public void teste(){
-        System.err.println("entrou");
+
+    public void addEndereco(Endereco endereco) {
+        this.enderecos.add(endereco);
     }
+
+    public void addArquivo(Arquivo arquivo) {
+        this.arquivos.add(arquivo);
+    }
+    
+    public void addFormaDePagamento(FormaDePagamento formaDePagamento){
+        this.formasDePagamentos.add(formaDePagamento);
+    }
+    
+    public void addServico(TipoServico tipoServico){
+        this.servicos.add(tipoServico);
+    }
+
 }

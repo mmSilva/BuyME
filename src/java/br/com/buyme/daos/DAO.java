@@ -45,6 +45,10 @@ public abstract class DAO<PK, T> {
                 .getResultList();
     }
 
+    public List<T> findAllColaboradores() {
+        return entityManager.createNamedQuery("SELECT tipo, usuario_id, apelido, datanascminento, login, nome, senha, datadenascimento, genero_genero_id descricao from usuario where tipo='COLABORADOR';").getResultList();
+    }
+
     private Class<?> getTypeClass() {
         Class<?> clazz = (Class<?>) ((ParameterizedType) this.getClass()
                 .getGenericSuperclass()).getActualTypeArguments()[1];

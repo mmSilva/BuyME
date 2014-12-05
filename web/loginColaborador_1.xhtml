@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      <!--xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">-->
+    <h:head>
+        <title>Buy Me</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" href="templates/docs/examples/favicon.ico" />
+
+    <!-- Bootstrap core CSS -->
+    <link href="templates/docs/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="templates/docs/examples/signin/signin.css" rel="stylesheet" />
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="templates/docs/assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    </h:head>
+    <h:body>
+
+    <!--      tamplate utilizado: signin-->
+    <div class="container">
+            <h:form class="form-signin" role="form">
+                <h2 class="form-signin-heading">Login</h2>
+                <p>
+                    <h:outputLabel for="inputEmail" class="sr-only" >
+                        <h:outputText value="Email:"/>
+                    </h:outputLabel>
+                    <h:inputText id="inputEmail" class="form-control" value="#{loginColaboradorAction.colaborador.login}" required="true" 
+                                 pt:placeholder="E-mail" validatorMessage="Valor inválido." requiredMessage="O campo Login é obrigatório.">
+                        <f:validateLength minimum="3" maximum="30"/>
+                    </h:inputText>
+                </p>
+                <p>
+                    <h:outputLabel for="inputPassword" class="sr-only">
+                        <h:outputText value="Senha:"/>
+                    </h:outputLabel>
+                    <h:inputSecret id="inputPassword" class="form-control" value="#{loginColaboradorAction.colaborador.senha}" required="true" 
+                                   pt:placeholder="Senha" validatorMessage="Valor inválido." requiredMessage="O campo de Senha é obrigatório." >
+                    <f:validateLength minimum="3" maximum="30"/>
+                    </h:inputSecret>
+                </p>
+
+                <h:commandButton class="btn btn-lg btn-primary btn-block" action="#{loginColaboradorAction.logar}" value="Entrar" /> <h:commandLink /> 
+
+            </h:form>
+        </div> <!-- /container -->
+
+
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="templates/docs/assets/js/ie10-viewport-bug-workaround.js"></script>     
+    </h:body>
+</html>
+

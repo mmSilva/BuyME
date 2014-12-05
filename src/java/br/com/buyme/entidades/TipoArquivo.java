@@ -5,14 +5,19 @@
  */
 package br.com.buyme.entidades;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  *
  * @author Di
  */
+@Entity
 public enum TipoArquivo {
 
     INDENTIDADE(0, "INDENTIDADE");
 
+    @Id
     private long tipo_arquivo_id;
     private String tipoArquivo;
 

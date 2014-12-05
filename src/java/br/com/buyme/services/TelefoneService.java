@@ -56,4 +56,42 @@ public class TelefoneService extends Service<Telefone> {
         return dao.findAll();
     }
 
+    @Override
+    public Telefone getById(long id) {
+        Telefone telefone = null;
+        try {
+            simpleEntityManager.beginTransaction();
+            telefone = (Telefone) dao.getById(id);
+            simpleEntityManager.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            simpleEntityManager.rollBack();
+        }
+        return telefone;
+    }
+
+    @Override
+    public void update(Telefone telefone) {
+        try {
+            simpleEntityManager.beginTransaction();
+            dao.update(telefone);
+            simpleEntityManager.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            simpleEntityManager.rollBack();
+        }
+    }
+
+    @Override
+    public void delete(Telefone telefone) {
+        try {
+            simpleEntityManager.beginTransaction();
+            dao.delete(telefone);
+            simpleEntityManager.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            simpleEntityManager.rollBack();
+        }
+    }
+
 }

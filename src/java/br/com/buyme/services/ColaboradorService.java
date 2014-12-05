@@ -27,6 +27,20 @@ public class ColaboradorService extends Service<Colaborador> {
     }
 
     @Override
+    public Colaborador getById(long id) {
+        Colaborador colaborador = null;
+        try {
+            simpleEntityManager.beginTransaction();
+            colaborador = (Colaborador) dao.getById(id);
+            simpleEntityManager.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            simpleEntityManager.rollBack();
+        }
+        return colaborador;
+    }
+
+    @Override
     public void save(Colaborador colaborador) {
         try {
             simpleEntityManager.beginTransaction();
@@ -53,7 +67,31 @@ public class ColaboradorService extends Service<Colaborador> {
 
     @Override
     public List<Colaborador> findAll() {
-        return dao.findAll();
+        return dao.findAllColaboradores();
+    }
+
+    @Override
+    public void update(Colaborador colaborador) {
+        try {
+            simpleEntityManager.beginTransaction();
+            dao.update(colaborador);
+            simpleEntityManager.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            simpleEntityManager.rollBack();
+        }
+    }
+
+    @Override
+    public void delete(Colaborador colaborador) {
+        try {
+            simpleEntityManager.beginTransaction();
+            dao.delete(colaborador);
+            simpleEntityManager.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            simpleEntityManager.rollBack();
+        }
     }
 
 }

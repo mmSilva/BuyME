@@ -7,9 +7,12 @@ package br.com.buyme.entidades;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -21,6 +24,9 @@ public class FormaDePagamento implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long formas_de_pagamento_id;
+    @OneToOne
+    @Enumerated(EnumType.ORDINAL)
+    private TipoDePagamento tipoDePagamento;
     private boolean autorizacao;
     private String descricao;
 
@@ -52,6 +58,20 @@ public class FormaDePagamento implements Serializable {
      */
     public void setFormas_de_pagamento_id(long formas_de_pagamento_id) {
         this.formas_de_pagamento_id = formas_de_pagamento_id;
+    }
+
+    /**
+     * @return the tipoDePagamento
+     */
+    public TipoDePagamento getTipoDePagamento() {
+        return tipoDePagamento;
+    }
+
+    /**
+     * @param tipoDePagamento the tipoDePagamento to set
+     */
+    public void setTipoDePagamento(TipoDePagamento tipoDePagamento) {
+        this.tipoDePagamento = tipoDePagamento;
     }
 
 }

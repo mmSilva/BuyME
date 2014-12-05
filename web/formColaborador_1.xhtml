@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      <!--xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">-->
+    <h:head>
+        <title>Buy Me</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" href="templates/docs/examples/favicon.ico" />
+
+    <!-- Bootstrap core CSS -->
+    <link href="templates/docs/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="#{resource='[web/]'}" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="templates/docs/examples/signin/signin.css" rel="stylesheet" />
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="templates/docs/assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    </h:head>
+    <h:body>
+
+         <div class="container">
+            <h:form class="form-signin" role="form">
+                 <h3 class="form-signin-heading">Cadastro de Colaborador</h3>
+            <p>
+                <h:outputLabel  for="nome" class="sr-only"> <!--class="camposDeCadastro" -->
+                    <h:outputText value="Nome:"/>
+                </h:outputLabel>
+                <h:inputText id="name" class="form-control" value="#{formColaboradorAction.colaborador.nome}" required="true" 
+                            pt:placeholder="Nome" validatorMessage="Valor inválido." requiredMessage="O campo nome é obrigatório.">
+                    <f:validateLength minimum="3" maximum="30"/>
+                </h:inputText>
+            </p>            
+
+
+
+            <p>
+                <h:outputLabel for="login" class="sr-only" >
+                    <h:outputText value="Login:"/>
+                </h:outputLabel>
+                <h:inputText id="login" class="form-control" value="#{formColaboradorAction.colaborador.login}" required="true" 
+                            pt:placeholder="E-mail" validatorMessage="Valor inválido." requiredMessage="O campo Login é obrigatório.">
+                    <f:validateLength minimum="3" maximum="30"/>
+                </h:inputText>
+            </p>
+            <p>
+                <h:outputLabel for="senha" class="sr-only">
+                    <h:outputText value="Senha:"/>
+                </h:outputLabel>
+                 <h:inputSecret id="inputPassword" class="form-control" value="#{formColaboradorAction.colaborador.senha}" required="true" 
+                            pt:placeholder="Senha" validatorMessage="Valor inválido." requiredMessage="O campo de Senha é obrigatório.">
+                    <f:validateLength minimum="3" maximum="30"/>
+                </h:inputSecret>
+            </p>
+            <p>
+                <h:outputLabel for="apelido" class="sr-only">
+                    <h:outputText value="Apelido:"/>
+                </h:outputLabel>
+                <h:inputText id="apelido" class="form-control" value="#{formColaboradorAction.colaborador.apelido}" required="true" 
+                            pt:placeholder="Apelido" validatorMessage="Valor inválido." requiredMessage="O campo de apelido é obrigatório.">
+                    <f:validateLength minimum="3" maximum="30"/>
+                </h:inputText>
+            </p>
+            <p>
+                <h:outputLabel for="descricao" class="sr-only">
+                    <h:outputText value="Descricao:"/>
+                </h:outputLabel>
+                <h:inputText id="descricao" class="form-control" value="#{formColaboradorAction.colaborador.descricao}" required="true" 
+                            pt:placeholder="Descrição" validatorMessage="Valor inválido." requiredMessage="O campo de descricao é obrigatório.">
+                    <f:validateLength minimum="3" maximum="30"/>
+                </h:inputText>
+            </p>
+
+            <p>
+                <h:outputLabel for="cache" class="sr-only">
+                    <h:outputText value="Cache:"/>
+                </h:outputLabel>
+                <h:inputText id="cache" class="form-control" value="#{formColaboradorAction.colaborador.cache}" required="true" 
+                            pt:placeholder="Cachê" validatorMessage="Valor inválido." requiredMessage="O campo de cache é obrigatório.">
+                    <f:validateLength minimum="3" maximum="30"/>
+                </h:inputText>
+            </p>
+<!--    private String apelido;
+    private String descricao;
+    private double cache;-->
+
+
+            <h:commandButton class="btn btn-lg btn-primary btn-block" action="#{formColaboradorAction.cadastrar}" value="Criar Conta" /> <h:commandLink /> 
+
+        </h:form>
+        </div>
+             <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="templates/docs/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+    </h:body>
+</html>
+

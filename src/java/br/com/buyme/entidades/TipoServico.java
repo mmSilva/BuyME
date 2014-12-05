@@ -5,14 +5,19 @@
  */
 package br.com.buyme.entidades;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  *
  * @author jurandir.pereira
  */
+@Entity
 public enum TipoServico {
 
     GRUPO(0, "GRUPO");
 
+    @Id
     private long tipo_servico_id;
     private String tipoServico;
 

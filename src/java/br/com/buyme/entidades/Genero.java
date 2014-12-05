@@ -5,14 +5,19 @@
  */
 package br.com.buyme.entidades;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  *
  * @author Di
  */
+@Entity
 public enum Genero {
 
     MASCULINO(0, "MASCULINO"), FEMININO(1, "FEMININO"), OUTROS(2, "OUTROS");
 
+    @Id
     private long genero_id;
     private String genero;
 

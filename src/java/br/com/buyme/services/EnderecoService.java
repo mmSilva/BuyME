@@ -56,4 +56,42 @@ public class EnderecoService extends Service<Endereco> {
         return dao.findAll();
     }
 
+    @Override
+    public Endereco getById(long id) {
+        Endereco endereco = null;
+        try {
+            simpleEntityManager.beginTransaction();
+            endereco = (Endereco) dao.getById(id);
+            simpleEntityManager.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            simpleEntityManager.rollBack();
+        }
+        return endereco;
+    }
+
+    @Override
+    public void update(Endereco endereco) {
+        try {
+            simpleEntityManager.beginTransaction();
+            dao.update(endereco);
+            simpleEntityManager.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            simpleEntityManager.rollBack();
+        }
+    }
+
+    @Override
+    public void delete(Endereco endereco) {
+        try {
+            simpleEntityManager.beginTransaction();
+            dao.delete(endereco);
+            simpleEntityManager.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            simpleEntityManager.rollBack();
+        }
+    }
+
 }

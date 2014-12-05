@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Gerenciamento Colaborador</title>
+    </h:head>
+    <h:body>
+        <p>
+            <h:form>
+                <h:commandLink action="edit.jsp">Editar dados do Cliente
+                    <f:setPropertyActionListener target="#{userHandler.userToEdit}"
+                                                 value="#{userReturn}" />
+                </h:commandLink>
+            </h:form>
+        </p>
+        <p>
+            <h:link outcome="confirmacaoDeExclusao.xhtml">Exclusão do Cliente</h:link>
+        </p>
+
+        <h3>Lista de Colaboradores</h3>
+
+        <h:form>
+            <h:messages id="userMessages" showDetail="true" layout="table" styleClass="errorMessages"/>
+
+            <h:dataTable id ="tabelaDados" styleClass="tableData" border="1" value="#{formClienteAction.colaboradores}" var="colaborador" >
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:link outcome="register.jsp">
+                            <h:graphicImage value="/Images/sluty.png"></h:graphicImage>
+                        </h:link>
+                    </f:facet>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Nome"/>
+                    </f:facet>
+
+                    <h:outputText value="#{colaborador.apelido}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Data de Nascimento"/>
+                    </f:facet>
+                    <h:outputText value="#{colaborador.descricao}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Salário"/>
+                    </f:facet>
+                    <h:outputText value="$ #{colaborador.cache}"/>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+
+    </h:body>
+</html>
